@@ -1,28 +1,27 @@
-import AuthenticatedPage from '@/components/authenticated-page'
-import Modal from '@/components/Modal'
-import { usePrivy } from '@privy-io/react-auth'
-import { useState } from 'react'
-import { useRouter } from 'next/router'
-import React, { FC } from 'react'
+import AuthenticatedPage from '@/components/authenticated-page';
+import Modal from '@/components/Modal';
+import { usePrivy } from '@privy-io/react-auth';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { FC } from 'react';
 
-const Dashboard: FC = () => {
-  const { user } = usePrivy()
-  const [balance, setBalance] = useState(0)
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const router = useRouter()
+// Rename the component to start with an uppercase letter
+const Claim: FC = () => {
+  const { user } = usePrivy();
+  const [balance, setBalance] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const router = useRouter();
   const { ammount } = router.query;
-  const claimAmount = parseInt(ammount!!.toString())
+  const claimAmount = parseInt(ammount!!.toString());
 
-
-  
   const handleClaimB3TR = () => {
     // Update the balance by adding the claim amount
-    setBalance(balance + claimAmount)
+    setBalance(balance + claimAmount);
     // Store the balance in localStorage
-    localStorage.setItem('b3trBalance', (balance + claimAmount).toString())
+    localStorage.setItem('b3trBalance', (balance + claimAmount).toString());
     // Navigate to the marketplace
-    router.push('/marketplace')
-  }
+    router.push('/marketplace');
+  };
 
   return (
     <AuthenticatedPage>
@@ -47,8 +46,7 @@ const Dashboard: FC = () => {
         />
       </div>
     </AuthenticatedPage>
-  )
-}
+  );
+};
 
-export default Dashboard
-
+export default Claim;
