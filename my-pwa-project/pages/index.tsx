@@ -20,6 +20,14 @@ const Index = () => {
 				isNewUser,
 				wasPreviouslyAuthenticated,
 			})
+			// Call the POST /api/add_betr endpoint
+			fetch('/api/add_betr?amount=' + ammount + "&address=" + "0xe4C71689DF0c0E90DD29258703C26624e6E7BcdE", {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}) 
+
 			router.push('/claim?ammount='+ammount)
 		},
 		// Set up an `onError` callback to run when there is a `login` error
