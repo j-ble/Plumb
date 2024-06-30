@@ -12,7 +12,7 @@ const Claim: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
   const { ammount } = router.query;
-  const claimAmount = parseInt(ammount!!.toString());
+  const claimAmount = parseInt(ammount?.toString() || "");
 
   const handleClaimB3TR = () => {
     // Update the balance by adding the claim amount
