@@ -9,9 +9,12 @@ const Dashboard: FC = () => {
   const { user } = usePrivy()
   const [balance, setBalance] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
-  const claimAmount = 10
   const router = useRouter()
+  const { ammount } = router.query;
+  const claimAmount = parseInt(ammount!!.toString())
 
+
+  
   const handleClaimB3TR = () => {
     // Update the balance by adding the claim amount
     setBalance(balance + claimAmount)
