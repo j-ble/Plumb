@@ -5,15 +5,13 @@ import { useState } from 'react'
 import { useRouter } from 'next/router'
 import React, { FC } from 'react'
 
-const Dashboard: FC = () => {
+const claim: FC = () => {
   const { user } = usePrivy()
   const [balance, setBalance] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const router = useRouter()
   const { ammount } = router.query;
   const claimAmount = parseInt(ammount!!.toString())
-
-
   
   const handleClaimB3TR = () => {
     // Update the balance by adding the claim amount
@@ -50,5 +48,5 @@ const Dashboard: FC = () => {
   )
 }
 
-export default Dashboard
+export default claim
 
